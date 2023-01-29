@@ -1,6 +1,27 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-}
+	reactStrictMode: false,
+	async rewrites() {
+		return [
+			{
+				source: "/image/:uuid/:filename",
+				destination: "/api/image/:uuid/:filename",
+			},
+			{
+				source: "/i/:uuid/:filename",
+				destination: "/api/image/:uuid/:filename",
+			},
+			{
+				source: "/image/:uuid",
+				destination: "/api/image/:uuid/",
+			},
+			{
+				source: "/i/:uuid",
+				destination: "/api/image/:uuid/",
+			},
+		];
+	},
+};
 
-module.exports = nextConfig
+const { withSuperjson } = require("next-superjson");
+module.exports = withSuperjson()(nextConfig);
