@@ -2,6 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+
+body {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 600;
+}
+
 .no-scrollbar::-webkit-scrollbar {
 	display: none;
+}
+
+.opacity-transition-enter {
+	opacity: 0;
+	z-index: -1;
+}
+
+.opacity-transition-enter-active {
+	opacity: 1;
+	z-index: 999;
+	transition: opacity 150ms;
+}
+
+.opacity-transition-enter-done {
+	opacity: 1;
+	z-index: 999;
+}
+
+.opacity-transition-exit {
+	opacity: 1;
+	z-index: 999;
+}
+
+.opacity-transition-exit-active {
+	opacity: 0;
+	transition: opacity 150ms;
+}
+
+.opacity-transition-exit-done {
+	opacity: 0;
+	z-index: -1;
 }
